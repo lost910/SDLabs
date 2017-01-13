@@ -13,6 +13,8 @@ namespace SDLabsMain
         [STAThread]
         static void Main()
         {
+            SDLabsLib.AppGlobalSettings.Init();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainView());

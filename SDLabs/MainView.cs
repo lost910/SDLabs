@@ -25,21 +25,19 @@ namespace SDLabsMain
         {
             try
             {
-                // throw new NotImplementedException("Invalid parameters");
-                //throw new Exception("Invalid parameters");
-                MockSonicSpeedInLiquidProvider dataProvider = new MockSonicSpeedInLiquidProvider();
+                IDataProvider dataProvider = new TestSonicSpeedInLiquidProvider(AppGlobalSettings.DataFileName);
                 dataProvider.Execute();
                 sslaBS.DataSource = dataProvider.SonicSpeedInLiquidList;
                 SSLActivityView.DataSource = sslaBS;
             }
             catch (NotImplementedException ex)
             {
-                //MessageBox.Show("NotImplementedException: " + ex.Message);
+                MessageBox.Show("NotImplementedException: " + ex.Message);
                 LogHelper.ErrorLog("NotImplementedException: " + ex.Message);
             }
             catch(Exception ex)
             {
-                //MessageBox.Show("Exception: " + ex.Message);
+                MessageBox.Show("Exception: " + ex.Message);
                 LogHelper.ErrorLog("Exception: " + ex.Message);
             }
         }

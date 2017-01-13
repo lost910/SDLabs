@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SDLabsLib
 {
-    public class MockSonicSpeedInLiquidProvider
+    public class TestSonicSpeedInLiquidProvider : IDataProvider
     {
         private readonly string _dataFileName = String.Empty;
         private List<SonicSpeedInLiquidActivity> _sonicSpeedInLiquidList;
@@ -15,7 +15,12 @@ namespace SDLabsLib
             get { return _sonicSpeedInLiquidList; }
         }
 
-        public MockSonicSpeedInLiquidProvider()
+        public TestSonicSpeedInLiquidProvider()
+        {
+            _sonicSpeedInLiquidList = new List<SonicSpeedInLiquidActivity>();
+        }
+
+        public TestSonicSpeedInLiquidProvider(string cap)
         {
             _sonicSpeedInLiquidList = new List<SonicSpeedInLiquidActivity>();
         }
