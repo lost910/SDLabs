@@ -12,11 +12,13 @@ namespace SDLabsLib
     {
         public static string LogPath { get; private set; }
         public static string DataFileName { get; private set; }
+        public static bool TestMode { get; private set; }
 
         public static void Init()
         {
             AppConfigUtility conf = new AppConfigUtility();
             LogPath = conf.AppSettings("logPath");
+            TestMode = Boolean.Parse(conf.AppSettings("TestMode"));
             DataFileName = Application.StartupPath.ToString() + '\\' + conf.AppSettings("dataFileName");
         }
     }

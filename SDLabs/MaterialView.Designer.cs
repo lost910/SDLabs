@@ -51,7 +51,6 @@
             // 
             this.txtMaterial.Location = new System.Drawing.Point(77, 10);
             this.txtMaterial.Name = "txtMaterial";
-            this.txtMaterial.ReadOnly = true;
             this.txtMaterial.Size = new System.Drawing.Size(195, 20);
             this.txtMaterial.TabIndex = 1;
             // 
@@ -59,7 +58,6 @@
             // 
             this.txtType.Location = new System.Drawing.Point(77, 36);
             this.txtType.Name = "txtType";
-            this.txtType.ReadOnly = true;
             this.txtType.Size = new System.Drawing.Size(195, 20);
             this.txtType.TabIndex = 3;
             // 
@@ -76,7 +74,6 @@
             // 
             this.txtTemperature.Location = new System.Drawing.Point(96, 62);
             this.txtTemperature.Name = "txtTemperature";
-            this.txtTemperature.ReadOnly = true;
             this.txtTemperature.Size = new System.Drawing.Size(176, 20);
             this.txtTemperature.TabIndex = 5;
             // 
@@ -93,7 +90,6 @@
             // 
             this.txtSpeed.Location = new System.Drawing.Point(77, 88);
             this.txtSpeed.Name = "txtSpeed";
-            this.txtSpeed.ReadOnly = true;
             this.txtSpeed.Size = new System.Drawing.Size(195, 20);
             this.txtSpeed.TabIndex = 7;
             // 
@@ -121,6 +117,7 @@
             this.Controls.Add(this.label1);
             this.Name = "MaterialView";
             this.Text = "Вещество";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MaterialView_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

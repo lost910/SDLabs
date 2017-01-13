@@ -16,8 +16,7 @@ namespace SDLabsLib
         GeneralError = -100
     }
 
-
-    public class SonicSpeedInLiquidProvider : IDataProvider
+    public class SonicSpeedInLiquidLoader : IDataLoader
     {
         private string _dataFileName = String.Empty;
         private List<SonicSpeedInLiquidActivity> _sonicSpeedInLiquidList;
@@ -33,7 +32,7 @@ namespace SDLabsLib
             get { return _status; }
         }
 
-        public SonicSpeedInLiquidProvider(string fileName)
+        public SonicSpeedInLiquidLoader(string fileName)
         {
             _sonicSpeedInLiquidList = new List<SonicSpeedInLiquidActivity>();
             _dataFileName = fileName;
@@ -41,8 +40,14 @@ namespace SDLabsLib
 
         public void Execute()
         {
+            if(_dataFileName == String.Empty)
+                _status = LoadStatus.FileNameIsEmpty;
+
             if (!File.Exists(_dataFileName))
+            {
+                _status = LoadStatus.FileNotExists;
                 throw new FileNotFoundException();
+            }
 
             XDocument doc = XDocument.Load(_dataFileName);
             foreach(XElement item in doc.Root.Elements())
@@ -56,7 +61,9 @@ namespace SDLabsLib
                 };
                 _sonicSpeedInLiquidList.Add(ssla);
             }
-                
+
+            _status = LoadStatus.Success;
+
         }
     }
 }

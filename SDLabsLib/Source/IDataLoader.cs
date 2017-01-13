@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SDLabsLib
 {
-    public interface IDataProvider
+    public interface IDataLoader
     {
         List<SonicSpeedInLiquidActivity> SonicSpeedInLiquidList { get; }
 

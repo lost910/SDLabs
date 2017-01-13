@@ -14,6 +14,9 @@ namespace SDLabsMain
     {
         private SonicSpeedInLiquidActivity _sonicSpeedInLiquidActivity = null;
 
+        public delegate void SaveEventHandler();
+        public event SaveEventHandler Save;
+
         public SonicSpeedInLiquidActivity SonicSpeedInLiquidActivity
         {
             get { return _sonicSpeedInLiquidActivity; }
@@ -32,6 +35,15 @@ namespace SDLabsMain
             this.txtType.Text = ssla.Type;
             this.txtTemperature.Text = ssla.Temperature.ToString();
             this.txtSpeed.Text = ssla.Speed.ToString();
+        }
+
+        private void MaterialView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _sonicSpeedInLiquidActivity.Material = this.txtMaterial.Text;
+            _sonicSpeedInLiquidActivity.Type = this.txtType.Text;
+            _sonicSpeedInLiquidActivity.Temperature = Int32.Parse(this.txtTemperature.Text);
+            _sonicSpeedInLiquidActivity.Speed = Int32.Parse(this.txtSpeed.Text);
+            Save();
         }
     }
 }

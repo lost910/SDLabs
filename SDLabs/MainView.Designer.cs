@@ -34,8 +34,10 @@
             this.mMItemExit = new System.Windows.Forms.ToolStripMenuItem();
             this.mMItemMaterials = new System.Windows.Forms.ToolStripMenuItem();
             this.mMItemOpenMaterial = new System.Windows.Forms.ToolStripMenuItem();
+            this.mMItemAddMaterial = new System.Windows.Forms.ToolStripMenuItem();
             this.Status = new System.Windows.Forms.StatusStrip();
             this.SSLActivityView = new System.Windows.Forms.DataGridView();
+            this.mMItemSaveAll = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SSLActivityView)).BeginInit();
             this.SuspendLayout();
@@ -55,6 +57,7 @@
             // 
             this.mMItemFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mMItemOpen,
+            this.mMItemSaveAll,
             this.mMItemExit});
             this.mMItemFile.Name = "mMItemFile";
             this.mMItemFile.Size = new System.Drawing.Size(48, 20);
@@ -63,21 +66,22 @@
             // mMItemOpen
             // 
             this.mMItemOpen.Name = "mMItemOpen";
-            this.mMItemOpen.Size = new System.Drawing.Size(121, 22);
+            this.mMItemOpen.Size = new System.Drawing.Size(152, 22);
             this.mMItemOpen.Text = "Открыть";
             this.mMItemOpen.Click += new System.EventHandler(this.mMItemOpen_Click);
             // 
             // mMItemExit
             // 
             this.mMItemExit.Name = "mMItemExit";
-            this.mMItemExit.Size = new System.Drawing.Size(121, 22);
+            this.mMItemExit.Size = new System.Drawing.Size(152, 22);
             this.mMItemExit.Text = "Выход";
             this.mMItemExit.Click += new System.EventHandler(this.mMItemExit_Click);
             // 
             // mMItemMaterials
             // 
             this.mMItemMaterials.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mMItemOpenMaterial});
+            this.mMItemOpenMaterial,
+            this.mMItemAddMaterial});
             this.mMItemMaterials.Name = "mMItemMaterials";
             this.mMItemMaterials.Size = new System.Drawing.Size(72, 20);
             this.mMItemMaterials.Text = "Вещества";
@@ -88,6 +92,13 @@
             this.mMItemOpenMaterial.Size = new System.Drawing.Size(220, 22);
             this.mMItemOpenMaterial.Text = "Открыть данные вещества";
             this.mMItemOpenMaterial.Click += new System.EventHandler(this.mMItemOpenMaterial_Click);
+            // 
+            // mMItemAddMaterial
+            // 
+            this.mMItemAddMaterial.Name = "mMItemAddMaterial";
+            this.mMItemAddMaterial.Size = new System.Drawing.Size(220, 22);
+            this.mMItemAddMaterial.Text = "Добавить вещество";
+            this.mMItemAddMaterial.Click += new System.EventHandler(this.mMItemAddMaterial_Click);
             // 
             // Status
             // 
@@ -104,6 +115,13 @@
             this.SSLActivityView.Name = "SSLActivityView";
             this.SSLActivityView.Size = new System.Drawing.Size(637, 321);
             this.SSLActivityView.TabIndex = 2;
+            // 
+            // mMItemSaveAll
+            // 
+            this.mMItemSaveAll.Name = "mMItemSaveAll";
+            this.mMItemSaveAll.Size = new System.Drawing.Size(152, 22);
+            this.mMItemSaveAll.Text = "Сохранить";
+            this.mMItemSaveAll.Click += new System.EventHandler(this.mMItemSaveAll_Click);
             // 
             // MainView
             // 
@@ -134,6 +152,8 @@
         private System.Windows.Forms.DataGridView SSLActivityView;
         private System.Windows.Forms.ToolStripMenuItem mMItemMaterials;
         private System.Windows.Forms.ToolStripMenuItem mMItemOpenMaterial;
+        private System.Windows.Forms.ToolStripMenuItem mMItemAddMaterial;
+        private System.Windows.Forms.ToolStripMenuItem mMItemSaveAll;
     }
 }
 
