@@ -73,6 +73,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="App.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -84,10 +85,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SDLabsLibSSL\SDLabsLibSSL.csproj">
-      <Project>{70eb0df3-4fe4-4bfe-b855-a1894e1273ee}</Project>
-      <Name>SDLabsLibSSL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SDLabsLib\SDLabsLib.csproj">
       <Project>{46704357-a608-47d3-8df8-a75ee8156494}</Project>
       <Name>SDLabsLib</Name>

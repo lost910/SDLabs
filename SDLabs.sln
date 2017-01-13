@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDLabsMain", "SDLabs\SDLabs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDLabsLib", "SDLabsLib\SDLabsLib.csproj", "{46704357-A608-47D3-8DF8-A75EE8156494}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDLabsLibSSL", "SDLabsLibSSL\SDLabsLibSSL.csproj", "{70EB0DF3-4FE4-4BFE-B855-A1894E1273EE}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{46704357-A608-47D3-8DF8-A75EE8156494}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46704357-A608-47D3-8DF8-A75EE8156494}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46704357-A608-47D3-8DF8-A75EE8156494}.Release|Any CPU.Build.0 = Release|Any CPU
-		{70EB0DF3-4FE4-4BFE-B855-A1894E1273EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{70EB0DF3-4FE4-4BFE-B855-A1894E1273EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{70EB0DF3-4FE4-4BFE-B855-A1894E1273EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{70EB0DF3-4FE4-4BFE-B855-A1894E1273EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
