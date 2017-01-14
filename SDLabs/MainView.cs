@@ -11,6 +11,7 @@ namespace SDLabsMain
     public partial class MainView : Form
     {
         private BindingSource sslaBS = new BindingSource();
+        SonicSpeedInLiquidFactory Factory = new SonicSpeedInLiquidFactory(AppGlobalSettings.TestMode);
 
         public MainView()
         {
@@ -27,9 +28,9 @@ namespace SDLabsMain
         {
             try
             {
-                IDataLoader dataProvider = new SonicSpeedInLiquidLoader(AppGlobalSettings.DataFileName);
-                dataProvider.Execute();
-                sslaBS.DataSource = dataProvider.SonicSpeedInLiquidList;
+                //IDataLoader dataProvider = new SonicSpeedInLiquidLoader(AppGlobalSettings.DataFileName);
+                //dataProvider.Execute();
+                sslaBS.DataSource = Factory.Create();
                 SSLActivityView.DataSource = sslaBS;
             }
             catch (NotImplementedException ex)
@@ -83,8 +84,23 @@ namespace SDLabsMain
 
         private void mMItemSaveAll_Click(object sender, EventArgs e)
         {
-            IDataSaver saveAction = new SonicSpeedInLiquidSaver(sslaBS, AppGlobalSettings.DataFileName);
-            saveAction.Execute();
+            try
+            {
+                //IDataSaver saveAction = new SonicSpeedInLiquidSaver(AppGlobalSettings.DataFileName);
+                //saveAction.Source = (List<SonicSpeedInLiquidActivity>)sslaBS.DataSource;
+                //saveAction.Execute();
+                Factory.Save((List<SonicSpeedInLiquidActivity>)sslaBS.DataSource);
+            }
+            catch (NotImplementedException ex)
+            {
+                MessageBox.Show("NotImplementedException: " + ex.Message);
+                LogHelper.ErrorLog("NotImplementedException: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception: " + ex.Message);
+                LogHelper.ErrorLog("Exception: " + ex.Message);
+            }
         }
     }
 }

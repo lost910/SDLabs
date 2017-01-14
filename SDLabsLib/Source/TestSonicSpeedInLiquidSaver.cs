@@ -9,9 +9,17 @@ namespace SDLabsLib.Source
     public class TestSonicSpeedInLiquidSaver : IDataSaver
     {
 
-        public TestSonicSpeedInLiquidSaver(BindingSource source, string fileName)
+        public TestSonicSpeedInLiquidSaver(string fileName)
         {
 
+        }
+
+        public List<SonicSpeedInLiquidActivity> Source
+        {
+            set
+            {
+                throw new NotImplementedException();
+            }
         }
 
         public void Execute()

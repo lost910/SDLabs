@@ -10,13 +10,17 @@ namespace SDLabsLib.Source
 {
     public class SonicSpeedInLiquidSaver : IDataSaver
     {
-        private BindingSource source;
+        private List<SonicSpeedInLiquidActivity> _source;
         private string _saveFile;
 
-        public SonicSpeedInLiquidSaver(BindingSource source, string fileName)
+        public SonicSpeedInLiquidSaver(string fileName)
         {
-            this.source = source;
             this._saveFile = fileName;
+        }
+
+        public List<SonicSpeedInLiquidActivity> Source
+        {
+            set { _source = value; }
         }
 
         public void Execute()
@@ -25,7 +29,7 @@ namespace SDLabsLib.Source
                 throw new FileNotFoundException();
 
             XDocument doc = new XDocument(new XElement("SonicSpeedInLiquidActivitys"));
-            foreach (SonicSpeedInLiquidActivity item in source)
+            foreach (SonicSpeedInLiquidActivity item in _source)
             {
                 doc.Root.Add(
                     new XElement("SonicSpeedInLiquidActivity", 

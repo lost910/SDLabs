@@ -45,8 +45,11 @@
     <Compile Include="Source\IDataLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Common\AppGlobalSettings.cs" />
-    <Compile Include="Source\ISonicSpeedInLiquidFactory.cs" />
+    <Compile Include="Source\ISonicSpeedInLiquidItemFactory.cs" />
     <Compile Include="Source\Log\LogHelper.cs" />
+    <Compile Include="Source\SonicSpeedInLiquidFactory.cs" />
+    <Compile Include="Source\SonicSpeedInLiquidItemFactory.cs" />
+    <Compile Include="Source\TestSonicSpeedInLiquidItemFactory.cs" />
     <Compile Include="Source\SonicSpeedInLiquidSaver.cs" />
     <Compile Include="Source\TestSonicSpeedInLiquidLoader.cs" />
     <Compile Include="Source\Activity\SonicSpeedInLiquidActivity.cs" />
