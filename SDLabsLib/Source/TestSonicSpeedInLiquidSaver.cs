@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace SDLabsLib.Source
 {
-    public class TestSonicSpeedInLiquidSaver : IDataSaver
+    internal class TestSonicSpeedInLiquidSaver : IDataSaver
     {
 
         public TestSonicSpeedInLiquidSaver(string fileName)

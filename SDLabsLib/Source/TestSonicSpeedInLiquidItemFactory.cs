@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SDLabsLib.Source
 {
-    public class TestSonicSpeedInLiquidItemFactory : ISonicSpeedInLiquidItemFactory
+    internal class TestSonicSpeedInLiquidItemFactory : ISonicSpeedInLiquidItemFactory
     {
         public IDataLoader SonicSpeedInLiquidListLoader()
         {

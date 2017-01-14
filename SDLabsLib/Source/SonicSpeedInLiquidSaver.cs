@@ -8,7 +8,7 @@ using System.Xml.Linq;
 
 namespace SDLabsLib.Source
 {
-    public class SonicSpeedInLiquidSaver : IDataSaver
+    internal class SonicSpeedInLiquidSaver : IDataSaver
     {
         private List<SonicSpeedInLiquidActivity> _source;
         private string _saveFile;

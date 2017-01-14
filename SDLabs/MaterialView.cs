@@ -45,5 +45,7 @@ namespace SDLabsMain
             _sonicSpeedInLiquidActivity.Speed = Int32.Parse(this.txtSpeed.Text);
             Save();
         }
+
+        
     }
 }
