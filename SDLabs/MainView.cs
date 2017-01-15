@@ -1,22 +1,24 @@
 ﻿using System;
 using System.Windows.Forms;
-using SDLabsLib.Source.Log;
+using SDLabsLib.Source.Helper;
 using System.Collections.Generic;
-using SDLabsLib;
-using System.Data;
-using SDLabsLib.Source;
+using SDLabsLib.Source.Factory;
+using SDLabsLib.Source.Entity;
+using SDLabsLib.Source.Common;
 
 namespace SDLabsMain
 {
     public partial class MainView : Form
     {
-        private BindingSource sslaBS = new BindingSource();
-        SonicSpeedInLiquidFactory Factory = new SonicSpeedInLiquidFactory(AppGlobalSettings.TestMode);
+        private BindingSource _dataBindProvider;
+        private SonicSpeedInLiquidFactory _factory;
 
         public MainView()
         {
             InitializeComponent();
-            SSLActivityView.AllowUserToAddRows = false;
+            EntityViewer.AllowUserToAddRows = false;
+            _dataBindProvider = new BindingSource();
+            _factory = new SonicSpeedInLiquidFactory(AppGlobalSettings.TestMode);
         }
 
         private void mMItemExit_Click(object sender, EventArgs e)
@@ -28,15 +30,8 @@ namespace SDLabsMain
         {
             try
             {
-                //IDataLoader dataProvider = new SonicSpeedInLiquidLoader(AppGlobalSettings.DataFileName);
-                //dataProvider.Execute();
-                sslaBS.DataSource = Factory.Create();
-                SSLActivityView.DataSource = sslaBS;
-            }
-            catch (NotImplementedException ex)
-            {
-                MessageBox.Show("NotImplementedException: " + ex.Message);
-                LogHelper.ErrorLog("NotImplementedException: " + ex.Message);
+                _dataBindProvider.DataSource = _factory.Create();
+                EntityViewer.DataSource = _dataBindProvider;
             }
             catch(Exception ex)
             {
@@ -50,8 +45,8 @@ namespace SDLabsMain
             try
             {
                 MaterialView materialView = new MaterialView();
-                SonicSpeedInLiquidActivity ssla = (sslaBS.Current as SonicSpeedInLiquidActivity);
-                materialView.SetSonicSpeedInLiquidActivity(ssla);
+                SonicSpeedInLiquidEntity ssla = (_dataBindProvider.Current as SonicSpeedInLiquidEntity);
+                materialView.SetSonicSpeedInLiquidEntity(ssla);
                 materialView.Save += MaterialView_Save;
                 materialView.ShowDialog();
             }
@@ -62,18 +57,22 @@ namespace SDLabsMain
             }
         }
 
-        private void MaterialView_Save()
+        private void MaterialView_Save(object e)
         {
-            SSLActivityView.Invalidate();
+            if (e != null)
+                _dataBindProvider.Add(e as SonicSpeedInLiquidEntity);
+
+            EntityViewer.Invalidate();
         }
 
         private void mMItemAddMaterial_Click(object sender, EventArgs e)
         {
             try
             {
-                sslaBS.Add(new SonicSpeedInLiquidActivity());
-                sslaBS.MoveLast();
-                mMItemOpenMaterial_Click(null, null);
+                MaterialView materialView = new MaterialView();
+                materialView.SetSonicSpeedInLiquidEntity(null);
+                materialView.Save += MaterialView_Save;
+                materialView.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -86,15 +85,20 @@ namespace SDLabsMain
         {
             try
             {
-                //IDataSaver saveAction = new SonicSpeedInLiquidSaver(AppGlobalSettings.DataFileName);
-                //saveAction.Source = (List<SonicSpeedInLiquidActivity>)sslaBS.DataSource;
-                //saveAction.Execute();
-                Factory.Save((List<SonicSpeedInLiquidActivity>)sslaBS.DataSource);
+                _factory.Save((List<SonicSpeedInLiquidEntity>)_dataBindProvider.DataSource);
             }
-            catch (NotImplementedException ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("NotImplementedException: " + ex.Message);
-                LogHelper.ErrorLog("NotImplementedException: " + ex.Message);
+                MessageBox.Show("Exception: " + ex.Message);
+                LogHelper.ErrorLog("Exception: " + ex.Message);
+            }
+        }
+
+        private void MItemRemoveEntity_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _dataBindProvider.Remove(_dataBindProvider.Current as SonicSpeedInLiquidEntity);
             }
             catch (Exception ex)
             {

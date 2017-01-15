@@ -1,9 +1,7 @@
-﻿using System;
+﻿using SDLabsLib.Source.Entity;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace SDLabsLib.Source
+namespace SDLabsLib.Source.Factory
 {
     public class SonicSpeedInLiquidFactory
     {
@@ -19,12 +17,12 @@ namespace SDLabsLib.Source
                 Factory = new SonicSpeedInLiquidItemFactory();
         }
 
-        public List<SonicSpeedInLiquidActivity> Create()
+        public List<SonicSpeedInLiquidEntity> Create()
         {
             return Factory.SonicSpeedInLiquidListLoader().SonicSpeedInLiquidList;
         }
 
-        public void Save(List<SonicSpeedInLiquidActivity> items)
+        public void Save(List<SonicSpeedInLiquidEntity> items)
         {
             Factory.SonicSpeedInLiquidListSaver(items);
         }

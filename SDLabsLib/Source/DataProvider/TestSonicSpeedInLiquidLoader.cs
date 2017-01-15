@@ -1,34 +1,33 @@
-﻿using System;
+﻿using SDLabsLib.Source.Entity;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace SDLabsLib
+namespace SDLabsLib.Source.DataProvider
 {
-    public class TestSonicSpeedInLiquidLoader : IDataLoader
+    internal class TestSonicSpeedInLiquidLoader : IDataLoader
     {
         private readonly string _dataFileName = String.Empty;
-        private List<SonicSpeedInLiquidActivity> _sonicSpeedInLiquidList;
+        private List<SonicSpeedInLiquidEntity> _sonicSpeedInLiquidList;
 
-        public List<SonicSpeedInLiquidActivity> SonicSpeedInLiquidList
+        public List<SonicSpeedInLiquidEntity> SonicSpeedInLiquidList
         {
             get { return _sonicSpeedInLiquidList; }
         }
 
         public TestSonicSpeedInLiquidLoader()
         {
-            _sonicSpeedInLiquidList = new List<SonicSpeedInLiquidActivity>();
+            _sonicSpeedInLiquidList = new List<SonicSpeedInLiquidEntity>();
         }
 
         public TestSonicSpeedInLiquidLoader(string cap)
         {
-            _sonicSpeedInLiquidList = new List<SonicSpeedInLiquidActivity>();
+            _sonicSpeedInLiquidList = new List<SonicSpeedInLiquidEntity>();
         }
 
         public void Execute()
         {
             {
-                SonicSpeedInLiquidActivity ssla = new SonicSpeedInLiquidActivity()
+                SonicSpeedInLiquidEntity ssla = new SonicSpeedInLiquidEntity()
                 {
                     Material = "Анилин",
                     Type = "Чистое вещество",
@@ -38,7 +37,7 @@ namespace SDLabsLib
                 _sonicSpeedInLiquidList.Add(ssla);
             }
             {
-                SonicSpeedInLiquidActivity ssla = new SonicSpeedInLiquidActivity()
+                SonicSpeedInLiquidEntity ssla = new SonicSpeedInLiquidEntity()
                 {
                     Material = "Ртуть",
                     Type = "Чистое вещество",
@@ -48,7 +47,7 @@ namespace SDLabsLib
                 _sonicSpeedInLiquidList.Add(ssla);
             }
             {
-                SonicSpeedInLiquidActivity ssla = new SonicSpeedInLiquidActivity()
+                SonicSpeedInLiquidEntity ssla = new SonicSpeedInLiquidEntity()
                 {
                     Material = "Кедровое",
                     Type = "Масло",

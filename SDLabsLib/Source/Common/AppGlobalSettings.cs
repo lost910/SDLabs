@@ -1,12 +1,9 @@
-﻿using SDLabsLib.Source.Utility;
+﻿using SDLabsLib.Source.Helper;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 
-namespace SDLabsLib
+namespace SDLabsLib.Source.Common
 {
     public static class AppGlobalSettings
     {
@@ -16,7 +13,7 @@ namespace SDLabsLib
 
         public static void Init()
         {
-            AppConfigUtility conf = new AppConfigUtility();
+            AppConfigHelper conf = new AppConfigHelper();
             LogPath = conf.AppSettings("logPath");
             TestMode = Boolean.Parse(conf.AppSettings("TestMode"));
             DataFileName = Application.StartupPath.ToString() + '\\' + conf.AppSettings("dataFileName");

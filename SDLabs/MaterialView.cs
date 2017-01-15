@@ -1,49 +1,65 @@
-﻿using SDLabsLib;
+﻿using SDLabsLib.Source.Entity;
+using SDLabsLib.Source.Helper;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace SDLabsMain
 {
     public partial class MaterialView : Form
     {
-        private SonicSpeedInLiquidActivity _sonicSpeedInLiquidActivity = null;
+        private SonicSpeedInLiquidEntity _sonicSpeedInLiquidEntity;
 
-        public delegate void SaveEventHandler();
+        public delegate void SaveEventHandler(object e);
         public event SaveEventHandler Save;
+        private bool _newItem;
 
-        public SonicSpeedInLiquidActivity SonicSpeedInLiquidActivity
+        public SonicSpeedInLiquidEntity SonicSpeedInLiquidActivity
         {
-            get { return _sonicSpeedInLiquidActivity; }
+            get { return _sonicSpeedInLiquidEntity; }
         }
 
         public MaterialView()
         {
             InitializeComponent();
-            _sonicSpeedInLiquidActivity = null;
+            _sonicSpeedInLiquidEntity = null;
         }
 
-        public void SetSonicSpeedInLiquidActivity(SonicSpeedInLiquidActivity ssla)
+        public void SetSonicSpeedInLiquidEntity(SonicSpeedInLiquidEntity ssla)
         {
-            this._sonicSpeedInLiquidActivity = ssla;
-            this.txtMaterial.Text = ssla.Material;
-            this.txtType.Text = ssla.Type;
-            this.txtTemperature.Text = ssla.Temperature.ToString();
-            this.txtSpeed.Text = ssla.Speed.ToString();
+            if (ssla != null)
+            {
+                this.txtMaterial.Text = ssla.Material;
+                this.txtType.Text = ssla.Type;
+                this.txtTemperature.Text = ssla.Temperature.ToString();
+                this.txtSpeed.Text = ssla.Speed.ToString();
+                this._sonicSpeedInLiquidEntity = ssla;
+            }
+            else
+            {
+                this._sonicSpeedInLiquidEntity = new SonicSpeedInLiquidEntity();
+                _newItem = true;
+            }
         }
 
         private void MaterialView_FormClosing(object sender, FormClosingEventArgs e)
         {
-            _sonicSpeedInLiquidActivity.Material = this.txtMaterial.Text;
-            _sonicSpeedInLiquidActivity.Type = this.txtType.Text;
-            _sonicSpeedInLiquidActivity.Temperature = Int32.Parse(this.txtTemperature.Text);
-            _sonicSpeedInLiquidActivity.Speed = Int32.Parse(this.txtSpeed.Text);
-            Save();
+            _sonicSpeedInLiquidEntity.Material = this.txtMaterial.Text;
+            _sonicSpeedInLiquidEntity.Type = this.txtType.Text;
+            _sonicSpeedInLiquidEntity.Temperature = Int32.Parse(this.txtTemperature.Text);
+            _sonicSpeedInLiquidEntity.Speed = Int32.Parse(this.txtSpeed.Text);
+
+            if (EntityValidationHelper.Validate(_sonicSpeedInLiquidEntity))
+            {
+                if (_newItem)
+                    Save(_sonicSpeedInLiquidEntity);
+                else
+                    Save(null);
+            }
+            else
+            {
+                e.Cancel = true;
+                MessageBox.Show("Введены некорректные значения","Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         

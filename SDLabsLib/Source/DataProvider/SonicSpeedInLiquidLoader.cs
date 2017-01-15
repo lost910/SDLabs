@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Xml.Linq;
+using SDLabsLib.Source.Entity;
 
-namespace SDLabsLib
+namespace SDLabsLib.Source.DataProvider
 {
     public enum LoadStatus
     {
@@ -16,13 +17,13 @@ namespace SDLabsLib
         GeneralError = -100
     }
 
-    public class SonicSpeedInLiquidLoader : IDataLoader
+    internal class SonicSpeedInLiquidLoader : IDataLoader
     {
         private string _dataFileName = String.Empty;
-        private List<SonicSpeedInLiquidActivity> _sonicSpeedInLiquidList;
+        private List<SonicSpeedInLiquidEntity> _sonicSpeedInLiquidList;
         private LoadStatus _status = LoadStatus.None;
 
-        public List<SonicSpeedInLiquidActivity> SonicSpeedInLiquidList
+        public List<SonicSpeedInLiquidEntity> SonicSpeedInLiquidList
         {
             get { return _sonicSpeedInLiquidList; }
         }
@@ -34,7 +35,7 @@ namespace SDLabsLib
 
         public SonicSpeedInLiquidLoader(string fileName)
         {
-            _sonicSpeedInLiquidList = new List<SonicSpeedInLiquidActivity>();
+            _sonicSpeedInLiquidList = new List<SonicSpeedInLiquidEntity>();
             _dataFileName = fileName;
         }
 
@@ -52,7 +53,7 @@ namespace SDLabsLib
             XDocument doc = XDocument.Load(_dataFileName);
             foreach(XElement item in doc.Root.Elements())
             {
-                SonicSpeedInLiquidActivity ssla = new SonicSpeedInLiquidActivity()
+                SonicSpeedInLiquidEntity ssla = new SonicSpeedInLiquidEntity()
                 {
                     Material = item.Element("Material").Value,
                     Type = item.Element("Type").Value,

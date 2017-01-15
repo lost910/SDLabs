@@ -1,9 +1,9 @@
-﻿using System;
+﻿using SDLabsLib.Source.Entity;
+using SDLabsLib.Source.Common;
+using SDLabsLib.Source.DataProvider;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace SDLabsLib.Source
+namespace SDLabsLib.Source.Factory
 {
     internal class SonicSpeedInLiquidItemFactory : ISonicSpeedInLiquidItemFactory
     {
@@ -14,7 +14,7 @@ namespace SDLabsLib.Source
             return dataProvider;
         }
 
-        public void SonicSpeedInLiquidListSaver(List<SonicSpeedInLiquidActivity> items)
+        public void SonicSpeedInLiquidListSaver(List<SonicSpeedInLiquidEntity> items)
         {
             IDataSaver saveAction = new SonicSpeedInLiquidSaver(AppGlobalSettings.DataFileName);
             saveAction.Source = items;

@@ -28,77 +28,86 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.mainMenu = new System.Windows.Forms.MenuStrip();
+            this.MainMenu = new System.Windows.Forms.MenuStrip();
             this.mMItemFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.mMItemOpen = new System.Windows.Forms.ToolStripMenuItem();
-            this.mMItemExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.MItemOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.MItemSaveAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.MItemExit = new System.Windows.Forms.ToolStripMenuItem();
             this.mMItemMaterials = new System.Windows.Forms.ToolStripMenuItem();
-            this.mMItemOpenMaterial = new System.Windows.Forms.ToolStripMenuItem();
-            this.mMItemAddMaterial = new System.Windows.Forms.ToolStripMenuItem();
+            this.MItemOpenMaterial = new System.Windows.Forms.ToolStripMenuItem();
+            this.MItemAddMaterial = new System.Windows.Forms.ToolStripMenuItem();
             this.Status = new System.Windows.Forms.StatusStrip();
-            this.SSLActivityView = new System.Windows.Forms.DataGridView();
-            this.mMItemSaveAll = new System.Windows.Forms.ToolStripMenuItem();
-            this.mainMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SSLActivityView)).BeginInit();
+            this.EntityViewer = new System.Windows.Forms.DataGridView();
+            this.MItemRemoveEntity = new System.Windows.Forms.ToolStripMenuItem();
+            this.MainMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EntityViewer)).BeginInit();
             this.SuspendLayout();
             // 
-            // mainMenu
+            // MainMenu
             // 
-            this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mMItemFile,
             this.mMItemMaterials});
-            this.mainMenu.Location = new System.Drawing.Point(0, 0);
-            this.mainMenu.Name = "mainMenu";
-            this.mainMenu.Size = new System.Drawing.Size(661, 24);
-            this.mainMenu.TabIndex = 0;
-            this.mainMenu.Text = "MenuControl";
+            this.MainMenu.Location = new System.Drawing.Point(0, 0);
+            this.MainMenu.Name = "MainMenu";
+            this.MainMenu.Size = new System.Drawing.Size(661, 24);
+            this.MainMenu.TabIndex = 0;
+            this.MainMenu.Text = "MenuControl";
             // 
             // mMItemFile
             // 
             this.mMItemFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mMItemOpen,
-            this.mMItemSaveAll,
-            this.mMItemExit});
+            this.MItemOpen,
+            this.MItemSaveAll,
+            this.MItemExit});
             this.mMItemFile.Name = "mMItemFile";
             this.mMItemFile.Size = new System.Drawing.Size(48, 20);
             this.mMItemFile.Text = "Файл";
             // 
-            // mMItemOpen
+            // MItemOpen
             // 
-            this.mMItemOpen.Name = "mMItemOpen";
-            this.mMItemOpen.Size = new System.Drawing.Size(152, 22);
-            this.mMItemOpen.Text = "Открыть";
-            this.mMItemOpen.Click += new System.EventHandler(this.mMItemOpen_Click);
+            this.MItemOpen.Name = "MItemOpen";
+            this.MItemOpen.Size = new System.Drawing.Size(152, 22);
+            this.MItemOpen.Text = "Открыть";
+            this.MItemOpen.Click += new System.EventHandler(this.mMItemOpen_Click);
             // 
-            // mMItemExit
+            // MItemSaveAll
             // 
-            this.mMItemExit.Name = "mMItemExit";
-            this.mMItemExit.Size = new System.Drawing.Size(152, 22);
-            this.mMItemExit.Text = "Выход";
-            this.mMItemExit.Click += new System.EventHandler(this.mMItemExit_Click);
+            this.MItemSaveAll.Name = "MItemSaveAll";
+            this.MItemSaveAll.Size = new System.Drawing.Size(152, 22);
+            this.MItemSaveAll.Text = "Сохранить";
+            this.MItemSaveAll.Click += new System.EventHandler(this.mMItemSaveAll_Click);
+            // 
+            // MItemExit
+            // 
+            this.MItemExit.Name = "MItemExit";
+            this.MItemExit.Size = new System.Drawing.Size(152, 22);
+            this.MItemExit.Text = "Выход";
+            this.MItemExit.Click += new System.EventHandler(this.mMItemExit_Click);
             // 
             // mMItemMaterials
             // 
             this.mMItemMaterials.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mMItemOpenMaterial,
-            this.mMItemAddMaterial});
+            this.MItemOpenMaterial,
+            this.MItemAddMaterial,
+            this.MItemRemoveEntity});
             this.mMItemMaterials.Name = "mMItemMaterials";
             this.mMItemMaterials.Size = new System.Drawing.Size(72, 20);
             this.mMItemMaterials.Text = "Вещества";
             // 
-            // mMItemOpenMaterial
+            // MItemOpenMaterial
             // 
-            this.mMItemOpenMaterial.Name = "mMItemOpenMaterial";
-            this.mMItemOpenMaterial.Size = new System.Drawing.Size(220, 22);
-            this.mMItemOpenMaterial.Text = "Открыть данные вещества";
-            this.mMItemOpenMaterial.Click += new System.EventHandler(this.mMItemOpenMaterial_Click);
+            this.MItemOpenMaterial.Name = "MItemOpenMaterial";
+            this.MItemOpenMaterial.Size = new System.Drawing.Size(220, 22);
+            this.MItemOpenMaterial.Text = "Открыть данные вещества";
+            this.MItemOpenMaterial.Click += new System.EventHandler(this.mMItemOpenMaterial_Click);
             // 
-            // mMItemAddMaterial
+            // MItemAddMaterial
             // 
-            this.mMItemAddMaterial.Name = "mMItemAddMaterial";
-            this.mMItemAddMaterial.Size = new System.Drawing.Size(220, 22);
-            this.mMItemAddMaterial.Text = "Добавить вещество";
-            this.mMItemAddMaterial.Click += new System.EventHandler(this.mMItemAddMaterial_Click);
+            this.MItemAddMaterial.Name = "MItemAddMaterial";
+            this.MItemAddMaterial.Size = new System.Drawing.Size(220, 22);
+            this.MItemAddMaterial.Text = "Добавить вещество";
+            this.MItemAddMaterial.Click += new System.EventHandler(this.mMItemAddMaterial_Click);
             // 
             // Status
             // 
@@ -108,35 +117,35 @@
             this.Status.TabIndex = 1;
             this.Status.Text = "statusStrip1";
             // 
-            // SSLActivityView
+            // EntityViewer
             // 
-            this.SSLActivityView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SSLActivityView.Location = new System.Drawing.Point(12, 27);
-            this.SSLActivityView.Name = "SSLActivityView";
-            this.SSLActivityView.Size = new System.Drawing.Size(637, 321);
-            this.SSLActivityView.TabIndex = 2;
+            this.EntityViewer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.EntityViewer.Location = new System.Drawing.Point(12, 27);
+            this.EntityViewer.Name = "EntityViewer";
+            this.EntityViewer.Size = new System.Drawing.Size(637, 321);
+            this.EntityViewer.TabIndex = 2;
             // 
-            // mMItemSaveAll
+            // MItemRemoveEntity
             // 
-            this.mMItemSaveAll.Name = "mMItemSaveAll";
-            this.mMItemSaveAll.Size = new System.Drawing.Size(152, 22);
-            this.mMItemSaveAll.Text = "Сохранить";
-            this.mMItemSaveAll.Click += new System.EventHandler(this.mMItemSaveAll_Click);
+            this.MItemRemoveEntity.Name = "MItemRemoveEntity";
+            this.MItemRemoveEntity.Size = new System.Drawing.Size(220, 22);
+            this.MItemRemoveEntity.Text = "Удалить вещество";
+            this.MItemRemoveEntity.Click += new System.EventHandler(this.MItemRemoveEntity_Click);
             // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(661, 373);
-            this.Controls.Add(this.SSLActivityView);
+            this.Controls.Add(this.EntityViewer);
             this.Controls.Add(this.Status);
-            this.Controls.Add(this.mainMenu);
-            this.MainMenuStrip = this.mainMenu;
+            this.Controls.Add(this.MainMenu);
+            this.MainMenuStrip = this.MainMenu;
             this.Name = "MainView";
             this.Text = "SD:4281";
-            this.mainMenu.ResumeLayout(false);
-            this.mainMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SSLActivityView)).EndInit();
+            this.MainMenu.ResumeLayout(false);
+            this.MainMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EntityViewer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,16 +153,17 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip mainMenu;
+        private System.Windows.Forms.MenuStrip MainMenu;
         private System.Windows.Forms.ToolStripMenuItem mMItemFile;
-        private System.Windows.Forms.ToolStripMenuItem mMItemOpen;
-        private System.Windows.Forms.ToolStripMenuItem mMItemExit;
+        private System.Windows.Forms.ToolStripMenuItem MItemOpen;
+        private System.Windows.Forms.ToolStripMenuItem MItemExit;
         private System.Windows.Forms.StatusStrip Status;
-        private System.Windows.Forms.DataGridView SSLActivityView;
+        private System.Windows.Forms.DataGridView EntityViewer;
         private System.Windows.Forms.ToolStripMenuItem mMItemMaterials;
-        private System.Windows.Forms.ToolStripMenuItem mMItemOpenMaterial;
-        private System.Windows.Forms.ToolStripMenuItem mMItemAddMaterial;
-        private System.Windows.Forms.ToolStripMenuItem mMItemSaveAll;
+        private System.Windows.Forms.ToolStripMenuItem MItemOpenMaterial;
+        private System.Windows.Forms.ToolStripMenuItem MItemAddMaterial;
+        private System.Windows.Forms.ToolStripMenuItem MItemSaveAll;
+        private System.Windows.Forms.ToolStripMenuItem MItemRemoveEntity;
     }
 }
 

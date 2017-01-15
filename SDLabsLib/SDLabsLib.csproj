@@ -41,21 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Source\IDataSaver.cs" />
-    <Compile Include="Source\IDataLoader.cs" />
+    <Compile Include="Source\DataProvider\IDataSaver.cs" />
+    <Compile Include="Source\DataProvider\IDataLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Common\AppGlobalSettings.cs" />
-    <Compile Include="Source\ISonicSpeedInLiquidItemFactory.cs" />
-    <Compile Include="Source\Log\LogHelper.cs" />
-    <Compile Include="Source\SonicSpeedInLiquidFactory.cs" />
-    <Compile Include="Source\SonicSpeedInLiquidItemFactory.cs" />
-    <Compile Include="Source\TestSonicSpeedInLiquidItemFactory.cs" />
-    <Compile Include="Source\SonicSpeedInLiquidSaver.cs" />
-    <Compile Include="Source\TestSonicSpeedInLiquidLoader.cs" />
-    <Compile Include="Source\Activity\SonicSpeedInLiquidActivity.cs" />
-    <Compile Include="Source\SonicSpeedInLiquidLoader.cs" />
-    <Compile Include="Source\TestSonicSpeedInLiquidSaver.cs" />
-    <Compile Include="Source\Utility\AppConfigUtility.cs" />
+    <Compile Include="Source\Factory\ISonicSpeedInLiquidItemFactory.cs" />
+    <Compile Include="Source\Helper\EntityValidationHelper.cs" />
+    <Compile Include="Source\Helper\LogHelper.cs" />
+    <Compile Include="Source\Factory\SonicSpeedInLiquidFactory.cs" />
+    <Compile Include="Source\Factory\SonicSpeedInLiquidItemFactory.cs" />
+    <Compile Include="Source\Factory\TestSonicSpeedInLiquidItemFactory.cs" />
+    <Compile Include="Source\DataProvider\SonicSpeedInLiquidSaver.cs" />
+    <Compile Include="Source\DataProvider\TestSonicSpeedInLiquidLoader.cs" />
+    <Compile Include="Source\Entity\SonicSpeedInLiquidEntity.cs" />
+    <Compile Include="Source\DataProvider\SonicSpeedInLiquidLoader.cs" />
+    <Compile Include="Source\DataProvider\TestSonicSpeedInLiquidSaver.cs" />
+    <Compile Include="Source\Helper\AppConfigHelper.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

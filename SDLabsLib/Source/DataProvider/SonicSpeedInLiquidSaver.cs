@@ -1,16 +1,13 @@
-﻿using System;
+﻿using SDLabsLib.Source.Entity;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace SDLabsLib.Source
+namespace SDLabsLib.Source.DataProvider
 {
     internal class SonicSpeedInLiquidSaver : IDataSaver
     {
-        private List<SonicSpeedInLiquidActivity> _source;
+        private List<SonicSpeedInLiquidEntity> _source;
         private string _saveFile;
 
         public SonicSpeedInLiquidSaver(string fileName)
@@ -18,7 +15,7 @@ namespace SDLabsLib.Source
             this._saveFile = fileName;
         }
 
-        public List<SonicSpeedInLiquidActivity> Source
+        public List<SonicSpeedInLiquidEntity> Source
         {
             set { _source = value; }
         }
@@ -29,7 +26,7 @@ namespace SDLabsLib.Source
                 throw new FileNotFoundException();
 
             XDocument doc = new XDocument(new XElement("SonicSpeedInLiquidActivitys"));
-            foreach (SonicSpeedInLiquidActivity item in _source)
+            foreach (SonicSpeedInLiquidEntity item in _source)
             {
                 doc.Root.Add(
                     new XElement("SonicSpeedInLiquidActivity", 
